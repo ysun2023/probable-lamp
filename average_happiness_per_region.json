@@ -1,0 +1,65 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Average Happiness Score per Region",
+    "data": {"url": "https://ysun2023.github.io/week10_homework/data/2016.csv"},
+    "width": 600,
+    "height": 400,
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "x": {
+            "field": "Region",
+            "type": "nominal",
+            "axis": {"labelAngle": -45},
+            "title": "Region"
+          },
+          "y": {
+            "field": "Happiness Score",
+            "type": "quantitative",
+            "aggregate": "mean",
+            "title": "Average Happiness Score"
+          },
+          "color": {
+            "field": "Region",
+            "type": "nominal",
+            "title": "Region",
+            "legend": {"orient": "top-right", "titleOrient": "top", "labelLimit": 0}
+          },
+          "tooltip": [
+            {
+              "field": "Happiness Score",
+              "type": "quantitative",
+              "aggregate": "mean",
+              "title": "Average Happiness Score"
+            }
+          ]
+        }
+      },
+      {
+        "mark": {"type": "rule", "color": "firebrick"},
+        "encoding": {
+          "y": {
+            "field": "Happiness Score",
+            "type": "quantitative",
+            "aggregate": "mean"
+          },
+          "size": {"value": 2}
+        }
+      },
+      {
+        "mark": {"type": "text", "align": "left", "baseline": "bottom", "dx": 5, "dy": -5, "color": "firebrick"},
+        "encoding": {
+          "y": {
+            "field": "Happiness Score",
+            "type": "quantitative",
+            "aggregate": "mean"
+          },
+          "text": {"value": "Global Average"}
+        }
+      }
+    ],
+    "config": {"bar": {"binSpacing": 4, "continuousBandSize": 5}},
+    "background": "white"
+  }
+  
