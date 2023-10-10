@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>World Happiness Dashboard</title>
+    <!-- Import Vega & Vega-Lite -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="styles.css" media="all">
+</head>
+
+<body>
+
+<div class="page">
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <h1>World Happiness Dashboard</h1>
+            <p>Explore the intriguing world of happiness scores, diving deep into how various factors collectively influence the happiness levels across different countries and regions.</p>
+        </div>
+    </div>
+
+    <!-- Map Section -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <div id="vis1" class="vis-container-map"></div>
+            <div class="description description-left">
+                <h2>Global Happiness Map</h2>
+                <p>Embark on a journey across the global happiness landscape, unraveling how happiness scores are distributed worldwide. The color intensity in the map above depicts the happiness score of each country, providing a visual representation of global happiness disparities.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bubble Chart Section -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <div id="vis2" class="vis-container-bubble"></div>
+            <div class="description description-left">
+                <h2>Delving into Happiness Factors</h2>
+                <p>Unveil the correlations between GDP per Capita and happiness scores while exploring how other factors like generosity (size of the bubble) and region (color of the bubble) play roles in shaping happiness levels across countries. The bubble chart offers a more granular perspective, presenting a multidimensional view of the factors contributing to happiness.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Bar Chart Section -->
+    <div class="pure-g">
+        <div class="pure-u-1-1">
+            <div id="vis3" class="vis-container-bar"></div>
+            <div class="description description-left">
+                <h2>Regional Averages in Happiness</h2>
+                <p>Drilling down further, we explore the average happiness scores across various regions. The bar chart reveals substantial disparities in happiness levels between different global regions. Notably, regions such as Western Europe and North America consistently secure higher average scores, correlating with their stronger economic performance and higher GDP per Capita as seen in the bubble chart above. The red line indicates the global average happiness score, offering a reference point to gauge regional performances. The connectivity in data storytelling here lies in exploring how macro-level regional averages and micro-level country-specific data jointly narrate the global happiness story.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="pure-g">
+        <div class="pure-u-1-1 small-font">
+            <p>This visualization is created by <a href="https://fit3179.github.io/Vega-Lite/" target="_blank">FIT3179
+                    Teaching Team</a>. The datasource is <a href="#" target=" _blank">some data repository online</a>.</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var specVis1 = "./world_happiness_map.json";
+    var specVis2 = "./world_happiness.json";
+    var specVis3 = "./average_happiness_per_region.json";  
+
+    vegaEmbed('#vis1', specVis1, {"actions": false});
+    vegaEmbed('#vis2', specVis2, {"actions": false});
+    vegaEmbed('#vis3', specVis3, {"actions": false});
+</script>
+
+</body>
+</html>
